@@ -9,7 +9,7 @@
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" Loaded="Page_Loaded"
       ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
       ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-      Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+      Foreground="{DynamicResource TextFillColorPrimaryBrush}" MinWidth="800" MinHeight="650"
       >
 
     <Grid>
@@ -26,7 +26,7 @@
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition x:Name="DeleteAndEditRow"/>
+                <RowDefinition x:Name="DeleteAndEditRow" Height="*"/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -34,17 +34,17 @@
 
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition x:Name="DeleteButtonColumn" />
-                    <ColumnDefinition x:Name="EditButtonColumn"/>
+                    <ColumnDefinition x:Name="DeleteButtonColumn" Width="*"/>
+                    <ColumnDefinition x:Name="EditButtonColumn" Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <ui:Button Width="{Binding ActualWidth, ElementName=DeleteButtonColumn}" Height="{Binding ActualHeight, ElementName=DeleteAndEditRow}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ui:Button Width="380" Height="55" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <WrapPanel>
                         <ui:SymbolIcon Symbol="Delete12" Margin="0,0,5,0"/>
                         <ui:TextBlock Text="Delete"/>
                     </WrapPanel>
                 </ui:Button>
-                <ui:Button Width="{Binding ActualWidth, ElementName=DeleteButtonColumn}" Height="{Binding ActualHeight, ElementName=DeleteAndEditRow}" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ui:Button Width="380" Height="55" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <WrapPanel>
                         <ui:SymbolIcon Symbol="Edit16" Margin="0,0,5,0"/>
                         <ui:TextBlock Text="Edit"/>
