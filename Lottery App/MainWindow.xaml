@@ -7,7 +7,11 @@
         xmlns:local="clr-namespace:Lottery_App"
         mc:Ignorable="d"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-        Title="MainWindow" Height="700" Width="1200"
+        Title="MainWindow" Height="750" Width="1200"
+        MinHeight="750"
+        MinWidth="1200"
+        WindowState="Normal"
+        WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Background="{ui:ThemeResource}"
         >
