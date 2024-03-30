@@ -58,9 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Base\RelayCommand.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="ViewModel\LotteryViewModel.cs" />
-    <Compile Include="ViewModel\ViewBase.cs" />
+    <Compile Include="Base\ViewBase.cs" />
     <Compile Include="View\LotteryPage.xaml.cs">
       <DependentUpon>LotteryPage.xaml</DependentUpon>
     </Compile>
