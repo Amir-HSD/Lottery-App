@@ -23,7 +23,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <ListBox x:Name="UsersList" HorizontalContentAlignment="Center" />
+        <ui:ListView x:Name="UsersList" HorizontalContentAlignment="Center" ItemsSource="{Binding Items}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}"/>
 
 
         <Grid Grid.Row="1">

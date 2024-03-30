@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lottery_App.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,12 @@ namespace Lottery_App
     /// </summary>
     public partial class MainWindow : Window
     {
+        //MainWindowViewModel MWVM = new MainWindowViewModel();
         public MainWindow()
         {
             InitializeComponent();
+            
+            //this.DataContext = MWVM;
         }
 
         private void DragMousePanel_EventHandler(object sender, MouseButtonEventArgs e)
@@ -36,6 +40,11 @@ namespace Lottery_App
         private void RootNavigation_Loaded(object sender, RoutedEventArgs e)
         {
             RootNavigation.Navigate("Dashboard");
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

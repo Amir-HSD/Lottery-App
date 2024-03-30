@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lottery_App.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,17 +21,17 @@ namespace Lottery_App.View
     /// </summary>
     public partial class LotteryPage : Page
     {
+        
         public LotteryPage()
         {
             InitializeComponent();
+            LotteryViewModel MWVM = new LotteryViewModel();
+            DataContext = MWVM;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < 100; i++)
-            {
-                UsersList.Items.Add($"amir {i}");
-            }
+            
         }
     }
 }

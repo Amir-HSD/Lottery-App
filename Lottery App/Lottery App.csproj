@@ -58,6 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="ViewModel\LotteryViewModel.cs" />
+    <Compile Include="ViewModel\ViewBase.cs" />
     <Compile Include="View\LotteryPage.xaml.cs">
       <DependentUpon>LotteryPage.xaml</DependentUpon>
     </Compile>
@@ -105,9 +108,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
