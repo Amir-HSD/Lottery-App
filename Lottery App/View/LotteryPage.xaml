@@ -23,7 +23,12 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <ui:ListView x:Name="UsersList" HorizontalContentAlignment="Center" ItemsSource="{Binding Items}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}"/>
+        <ui:ListView
+            x:Name="UsersList"
+            HorizontalContentAlignment="Center"
+            DisplayMemberPath="Name"
+            ItemsSource="{Binding Items}"
+            SelectedItem="{Binding SelectedItem}" />
 
 
         <Grid Grid.Row="1">
@@ -104,7 +109,9 @@
                     VerticalContentAlignment="Center"
                     ClearButtonEnabled="False"
                     FontSize="20"
-                    MaxLines="1" SelectionBrush="White" />
+                    MaxLines="1"
+                    SelectionBrush="White"
+                    Text="{Binding UserName}" />
             </Grid>
             <!--  End  -->
 
@@ -115,7 +122,9 @@
                 Margin="5"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                Content="Add To List"/>
+                Content="Add To List" 
+                Command="{Binding AddToListCommand}"
+                />
 
             <!--  End  -->
 
