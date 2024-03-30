@@ -111,7 +111,7 @@
                     FontSize="20"
                     MaxLines="1"
                     SelectionBrush="White"
-                    Text="{Binding UserName}" />
+                    Text="{Binding UserName,Mode=TwoWay}" PlaceholderText="Name" />
             </Grid>
             <!--  End  -->
 
@@ -122,9 +122,12 @@
                 Margin="5"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                Content="Add To List" 
-                Command="{Binding AddToListCommand}"
-                />
+                Command="{Binding AddToListCommand}">
+                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ui:SymbolIcon Margin="0,0,5,0" Symbol="Add48" />
+                    <ui:TextBlock Text="Add To List" />
+                </WrapPanel>
+            </ui:Button>
 
             <!--  End  -->
 

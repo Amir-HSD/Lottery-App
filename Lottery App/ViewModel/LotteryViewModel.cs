@@ -1,6 +1,7 @@
 ﻿using Lottery_App.Base;
 using Lottery_App.Model;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace Lottery_App.ViewModel
 {
@@ -24,7 +25,7 @@ namespace Lottery_App.ViewModel
             }
 		}
 
-        private string username;
+        private string username = string.Empty;
 
         public string UserName
         {
@@ -37,9 +38,9 @@ namespace Lottery_App.ViewModel
 
         public void AddToList()
         {
-            if (UserName != null || UserName != string.Empty)
+            if (UserName != string.Empty)
             {
-                Items.Add(new Item { Name= UserName });
+                Items.Add(new Item { Name = UserName });
             }
         }
 
