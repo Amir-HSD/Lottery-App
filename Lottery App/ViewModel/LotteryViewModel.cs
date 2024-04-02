@@ -39,12 +39,23 @@ namespace Lottery_App.ViewModel
 
         public RelayCommand AddToListCommand => new RelayCommand(onExecute => { AddToList(); }, onExecuteChanged => { return true; });
 
+        public RelayCommand RemoveFromListCommand => new RelayCommand(onExecute => { RemoveFromList(); }, onExecuteChanged => { return true; });
+
         public void AddToList()
         {
             if (UserName != string.Empty)
             {
                 Items.Add(new Item { Name = UserName });
                 UserName = string.Empty;
+            }
+        }
+
+        public void RemoveFromList()
+        {
+            if (SelectedItem != null)
+            {
+                Items.Remove(SelectedItem);
+                SelectedItem = null;
             }
         }
 

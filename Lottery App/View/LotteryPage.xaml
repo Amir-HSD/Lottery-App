@@ -81,7 +81,8 @@
                     Grid.Column="0"
                     Margin="5"
                     HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch">
+                    VerticalAlignment="Stretch"
+                    Command="{Binding RemoveFromListCommand}">
                     <WrapPanel>
                         <ui:SymbolIcon Margin="0,0,5,0" Symbol="Delete12" />
                         <ui:TextBlock Text="Delete" />
