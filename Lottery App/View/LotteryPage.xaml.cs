@@ -13,6 +13,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wpf.Ui.Controls;
+using Wpf.Ui;
+using System.Threading;
+using Wpf.Ui.Extensions;
+using Lottery_App.Model;
 
 namespace Lottery_App.View
 {
@@ -21,11 +26,11 @@ namespace Lottery_App.View
     /// </summary>
     public partial class LotteryPage : Page
     {
-        
+        LotteryViewModel MWVM = new LotteryViewModel();
         public LotteryPage()
         {
             InitializeComponent();
-            LotteryViewModel MWVM = new LotteryViewModel();
+            MWVM.ShowMessageRequested += ShowMessage;
             DataContext = MWVM;
         }
 
@@ -33,5 +38,18 @@ namespace Lottery_App.View
         {
             
         }
+        private async void ShowMessage(object sender, MsgBoxProp msgBoxProp)
+        {
+            var MessageBox = new Wpf.Ui.Controls.MessageBox
+            {
+                Title = msgBoxProp.Title,
+                Content = msgBoxProp.Content,
+                IsPrimaryButtonEnabled = true,
+                PrimaryButtonText = msgBoxProp.ButtonText,
+            };
+            var result = await MessageBox.ShowDialogAsync();
+            MWVM.Result = result.ToString().Equals("Primary");
+        }
+
     }
 }

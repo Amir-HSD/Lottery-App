@@ -1,7 +1,13 @@
 ﻿using Lottery_App.Base;
 using Lottery_App.Model;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows;
+using Wpf.Ui;
+using Wpf.Ui.Controls;
+using Wpf.Ui.Extensions;
 
 namespace Lottery_App.ViewModel
 {
@@ -41,6 +47,8 @@ namespace Lottery_App.ViewModel
 
         public RelayCommand RemoveFromListCommand => new RelayCommand(onExecute => { RemoveFromList(); }, onExecuteChanged => { return true; });
 
+        public RelayCommand ClearListCommand => new RelayCommand(onExecute => { ClearList(); }, onExecuteChanged => { return true; });
+
         public void AddToList()
         {
             if (UserName != string.Empty)
@@ -59,6 +67,43 @@ namespace Lottery_App.ViewModel
             }
         }
 
+        public event EventHandler<MsgBoxProp> ShowMessageRequested;
+
+        private bool result;
+
+        public bool Result
+        {
+            get { return result; }
+            set { 
+                result = value;
+                OnPropertyChanged(nameof(Result));
+            }
+        }
+
+
+        public async void ClearList()
+        {
+            if (Items.Count != 0)
+            {
+
+                MsgBoxProp msgBoxProp = new MsgBoxProp();
+
+                msgBoxProp.Title = "Clear List";
+                msgBoxProp.Content = "Are you sure?";
+                msgBoxProp.ButtonText = "OK";
+
+                ShowMessageRequested?.Invoke(this, msgBoxProp);
+
+                if (Result == true)
+                {
+                    Items.Clear();
+                }
+
+                
+            }
+        }
+
 
 	}
+
 }
