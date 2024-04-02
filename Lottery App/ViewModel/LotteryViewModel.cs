@@ -30,7 +30,10 @@ namespace Lottery_App.ViewModel
         public string UserName
         {
             get { return username; }
-            set { username = value; }
+            set { 
+                username = value; 
+                OnPropertyChanged();
+            }
         }
 
 
@@ -41,6 +44,7 @@ namespace Lottery_App.ViewModel
             if (UserName != string.Empty)
             {
                 Items.Add(new Item { Name = UserName });
+                UserName = string.Empty;
             }
         }
 

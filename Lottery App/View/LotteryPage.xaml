@@ -112,7 +112,7 @@
                     MaxLines="1"
                     PlaceholderText="Name"
                     SelectionBrush="White"
-                    Text="{Binding UserName, Mode=TwoWay}" />
+                    Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
             <!--  End  -->
 
