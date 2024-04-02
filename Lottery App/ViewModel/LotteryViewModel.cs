@@ -103,6 +103,10 @@ namespace Lottery_App.ViewModel
             }
         }
 
+        public void OnEnterPressed()
+        {
+            AddToList();
+        }
 
 	}
 
