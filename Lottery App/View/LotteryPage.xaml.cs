@@ -31,6 +31,7 @@ namespace Lottery_App.View
         {
             InitializeComponent();
             MWVM.ShowMessageRequested += ShowMessage;
+            MWVM.RefreshItems += RefreshListView;
             DataContext = MWVM;
         }
 
@@ -57,6 +58,11 @@ namespace Lottery_App.View
             {
                 MWVM.OnEnterPressed();
             }
+        }
+        public void RefreshListView(object sender, bool Check)
+        {
+            UsersList.Items.Refresh();
+            UsersList.SelectedItem = null;
         }
     }
 }

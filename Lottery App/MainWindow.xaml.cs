@@ -1,4 +1,5 @@
-﻿using Lottery_App.ViewModel;
+﻿using Lottery_App.View;
+using Lottery_App.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
