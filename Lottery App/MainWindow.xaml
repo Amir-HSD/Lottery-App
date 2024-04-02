@@ -110,7 +110,18 @@
                         <ui:SymbolIcon Symbol="Home24" />
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
+                <ui:NavigationViewItem Content="Users" >
+                    <ui:NavigationViewItem.Icon>
+                        <ui:SymbolIcon Symbol="People24" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+                <ui:NavigationViewItem Content="Winners" >
+                    <ui:NavigationViewItem.Icon>
+                        <ui:SymbolIcon Symbol="Ribbon24" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
             </ui:NavigationView.MenuItems>
+
 
             <ui:NavigationView.FooterMenuItems>
                 <ui:NavigationViewItem Content="Settings">

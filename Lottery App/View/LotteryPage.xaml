@@ -110,8 +110,9 @@
                     ClearButtonEnabled="False"
                     FontSize="20"
                     MaxLines="1"
+                    PlaceholderText="Name"
                     SelectionBrush="White"
-                    Text="{Binding UserName,Mode=TwoWay}" PlaceholderText="Name" />
+                    Text="{Binding UserName, Mode=TwoWay}" />
             </Grid>
             <!--  End  -->
 
