@@ -28,7 +28,8 @@
             HorizontalContentAlignment="Center"
             DisplayMemberPath="Name"
             ItemsSource="{Binding Items}"
-            SelectedItem="{Binding SelectedItem}" />
+            SelectedItem="{Binding SelectedItem}"
+            SelectionMode="Single" />
 
 
         <Grid Grid.Row="1">
