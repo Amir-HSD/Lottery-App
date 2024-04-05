@@ -19,16 +19,18 @@ namespace Lottery_App.ViewModel
 
         public LotteryViewModel()
         {
-            Items = new ObservableCollection<Item>();
+            
+            Items = new ObservableCollection<Item>(UsersData.Instance.Items);
         }
 
-        private ObservableCollection<Item> items;
+        
         public ObservableCollection<Item> Items
         {
-            get { return items; }
+            get { return UsersData.Instance.Items; }
             set
             {
-                items = value;
+                //items = value;
+                UsersData.Instance.Items = value;
                 OnPropertyChanged();
             }
         }

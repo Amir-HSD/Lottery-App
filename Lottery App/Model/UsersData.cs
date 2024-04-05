@@ -30,5 +30,12 @@ namespace Lottery_App.Model
             Items = new ObservableCollection<Item>();
         }
 
+        public event EventHandler ItemChanged;
+
+        protected virtual void OnItemChanged()
+        {
+            ItemChanged?.Invoke(this, EventArgs.Empty);
+        }
+
     }
 }
