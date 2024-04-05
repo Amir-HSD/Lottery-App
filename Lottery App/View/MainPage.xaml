@@ -26,8 +26,7 @@
             Margin="0,0,0,10"
             HorizontalContentAlignment="Center"
             DisplayMemberPath="Name"
-            ItemsSource="{Binding Items, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-            />
+            ItemsSource="{Binding Items, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
         <ui:Button
             Grid.Row="1"
