@@ -61,6 +61,7 @@
     <Compile Include="Base\RelayCommand.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\MsgBoxProp.cs" />
+    <Compile Include="Model\UsersData.cs" />
     <Compile Include="ViewModel\LotteryViewModel.cs" />
     <Compile Include="Base\ViewBase.cs" />
     <Compile Include="View\EditUserWindow.xaml.cs">

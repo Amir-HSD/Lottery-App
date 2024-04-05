@@ -105,12 +105,12 @@
             </ui:NavigationView.Header>
 
             <ui:NavigationView.MenuItems>
-                <ui:NavigationViewItem Content="Dashboard" TargetPageType="{x:Type View:LotteryPage}">
+                <ui:NavigationViewItem Content="Dashboard" TargetPageType="{x:Type View:MainPage}">
                     <ui:NavigationViewItem.Icon>
                         <ui:SymbolIcon Symbol="Home24" />
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
-                <ui:NavigationViewItem Content="Users">
+                <ui:NavigationViewItem Content="Users" TargetPageType="{x:Type View:LotteryPage}">
                     <ui:NavigationViewItem.Icon>
                         <ui:SymbolIcon Symbol="People24" />
                     </ui:NavigationViewItem.Icon>
