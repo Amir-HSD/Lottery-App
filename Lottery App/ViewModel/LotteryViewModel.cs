@@ -22,7 +22,6 @@ namespace Lottery_App.ViewModel
             
             Items = new ObservableCollection<Item>(UsersData.Instance.Items);
         }
-
         
         public ObservableCollection<Item> Items
         {
