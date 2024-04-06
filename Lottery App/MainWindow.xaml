@@ -54,8 +54,8 @@
                 HorizontalAlignment="Right"
                 Background="{ui:ThemeResource}"
                 BorderThickness="0"
-                CornerRadius="0"
-                Click="MinimizeButton">
+                Click="MinimizeButton"
+                CornerRadius="0">
                 <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <ui:SymbolIcon Foreground="#FFFF" Symbol="LineHorizontal120" />
                 </WrapPanel>
@@ -68,8 +68,8 @@
                 HorizontalAlignment="Right"
                 Background="{ui:ThemeResource}"
                 BorderThickness="0"
-                CornerRadius="0"
-                Click="MaximizeButton">
+                Click="MaximizeButton"
+                CornerRadius="0">
                 <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <ui:SymbolIcon Foreground="#FFFF" Symbol="Maximize16" />
                 </WrapPanel>
@@ -82,8 +82,8 @@
                 HorizontalAlignment="Right"
                 Background="{ui:ThemeResource}"
                 BorderThickness="0"
-                CornerRadius="0"
-                Click="CloseButton">
+                Click="CloseButton"
+                CornerRadius="0">
                 <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <ui:SymbolIcon Foreground="#FFFF" Symbol="Dismiss12" />
                 </WrapPanel>

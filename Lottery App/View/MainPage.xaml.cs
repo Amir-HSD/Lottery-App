@@ -30,5 +30,9 @@ namespace Lottery_App.View
             DataContext = MPVM;
         }
 
+        private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+
+        }
     }
 }
