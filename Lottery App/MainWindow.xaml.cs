@@ -47,5 +47,25 @@ namespace Lottery_App
         {
             
         }
+
+        private void CloseButton(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        private void MaximizeButton(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState == WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = WindowState.Maximized;
+            }
+        }
+        private void MinimizeButton(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 }
