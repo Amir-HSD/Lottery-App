@@ -1,9 +1,11 @@
 ﻿using Lottery_App.Base;
 using Lottery_App.Model;
 using Lottery_App.View;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,10 +21,10 @@ namespace Lottery_App.ViewModel
 
         public LotteryViewModel()
         {
-            
+
             Items = new ObservableCollection<Item>(UsersData.Instance.Items);
         }
-        
+
         public ObservableCollection<Item> Items
         {
             get { return UsersData.Instance.Items; }
@@ -37,20 +39,20 @@ namespace Lottery_App.ViewModel
         public Item selectedItem { get; set; }
         public Item SelectedItem
         {
-			get { return selectedItem; }
-			set { 
+            get { return selectedItem; }
+            set {
                 selectedItem = value;
                 OnPropertyChanged(nameof(SelectedItem));
             }
-		}
+        }
 
         private string username = string.Empty;
 
         public string UserName
         {
             get { return username; }
-            set { 
-                username = value; 
+            set {
+                username = value;
                 OnPropertyChanged();
             }
         }
@@ -63,6 +65,8 @@ namespace Lottery_App.ViewModel
         public RelayCommand ClearListCommand => new RelayCommand(onExecute => { ClearList(); }, onExecuteChanged => { return true; });
 
         public RelayCommand EditUserNameCommand => new RelayCommand(onExecute => { EditUserName(); }, onExecuteChanged => { return true; });
+
+        public RelayCommand AddFromTxtCommand => new RelayCommand(onExecute => { AddFromTxt(); }, onExecuteChanged => { return true; });
         public void AddToList()
         {
             if (UserName != string.Empty)
@@ -114,6 +118,22 @@ namespace Lottery_App.ViewModel
                 }
 
                 
+            }
+        }
+
+        public void AddFromTxt()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text files (*.txt)|*.txt";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string[] Names = File.ReadAllLines(openFileDialog.FileName);
+
+                foreach (string name in Names)
+                {
+                    Items.Add(new Item { Name = name});
+                }
+
             }
         }
 
