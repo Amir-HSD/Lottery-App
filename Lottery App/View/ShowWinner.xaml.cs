@@ -1,53 +1,74 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using System;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Media.Media3D;
-using System.Windows.Shapes;
+using System.Windows.Media;
+using System.Windows.Threading;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Lottery_App.Model;
+using System.Reflection;
 
 namespace Lottery_App.View
 {
     /// <summary>
     /// Interaction logic for ShowWinner.xaml
     /// </summary>
-    public partial class ShowWinner : Window
+    public partial class ShowWinner : Window, INotifyPropertyChanged
     {
-        public ShowWinner()
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        DispatcherTimer timer;
+
+        private string winnerName;
+
+        public string WinnerName
+        {
+            get { return winnerName; }
+            set { winnerName = value; OnPropertyChanged(); }
+        }
+
+        private string OrginalWinnerName = "";
+        public ShowWinner(string orginalWinnerName)
         {
             InitializeComponent();
             DataContext = this;
+            Loaded += Window_Loaded;
+            OrginalWinnerName = orginalWinnerName;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Storyboard storyboard = new Storyboard();
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(100);
+            timer.Tick += Timer_Tick;
+            WinnerName = "...";
+            timer.Start();
+        }
 
-            DoubleAnimation SpinnerAnimation = new DoubleAnimation();
-
-            SpinnerAnimation.From = 0;
-
-            SpinnerAnimation.To = 360;
-
-            SpinnerAnimation.Duration = new Duration(TimeSpan.FromSeconds(5));
-
-            SpinnerAnimation.RepeatBehavior = RepeatBehavior.Forever;
-
-            Storyboard.SetTarget(SpinnerAnimation, SpinnerTransform);
-
-            Storyboard.SetTargetProperty(SpinnerAnimation, new PropertyPath("Angle"));
-
-            storyboard.Children.Add(SpinnerAnimation);
-
-            storyboard.Begin();
+        int index = UsersData.Instance.Items.Count-1;
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (index >= 0)
+            {
+                WinnerName = UsersData.Instance.Items[index].Name;
+            }
+            else
+            {
+                index = UsersData.Instance.Items.Count - 1;
+            }
+            index--;
+            if (timer.Interval.Ticks > 30)
+            {
+                timer.Stop();
+            }
         }
     }
 }

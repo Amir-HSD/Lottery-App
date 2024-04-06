@@ -32,7 +32,8 @@
             Grid.Row="1"
             Margin="5"
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch">
+            VerticalAlignment="Stretch"
+            Command="{Binding ShowWinnerCommand}">
             <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <ui:SymbolIcon Margin="0,0,5,0" Symbol="Lottery24" />
                 <ui:TextBlock Text="Start Lottery" />
