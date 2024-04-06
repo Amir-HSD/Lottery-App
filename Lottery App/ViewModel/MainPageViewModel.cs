@@ -25,12 +25,40 @@ namespace Lottery_App.ViewModel
 
         public RelayCommand ShowWinnerCommand => new RelayCommand(onExecute => { ShowWinner(); }, onExecuteChanged=> { return true; });
 
+        int WinnerCount = 0;
         public void ShowWinner()
         {
-            Random random = new Random();
-            random.Next(0, Items.Count);
 
-            ShowWinner showWinner = new ShowWinner("");
+            if (UsersData.Instance.Items.Count == 0)
+            {
+                return;
+            }
+
+            string WinnerName = "";
+
+            if (UsersData.Instance.ReservedNames.Count > 0)
+            {
+                if (WinnerCount < UsersData.Instance.ReservedNames.Count)
+                {
+                    WinnerName = UsersData.Instance.ReservedNames[WinnerCount].Name;
+                    WinnerCount++;
+                }
+                else
+                {
+                    Random random = new Random();
+                    int num = random.Next(0, Items.Count);
+                    WinnerName = UsersData.Instance.Items[num].Name;
+
+                }
+            }
+            else
+            {
+                Random random = new Random();
+                int num = random.Next(0, Items.Count);
+                WinnerName = UsersData.Instance.Items[num].Name;
+            }
+
+            ShowWinner showWinner = new ShowWinner(WinnerName);
 
             showWinner.Owner = Application.Current.MainWindow;
 

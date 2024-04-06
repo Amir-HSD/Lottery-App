@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Lottery_App.Model;
 using System.Reflection;
+using System.Windows.Input;
 
 namespace Lottery_App.View
 {
@@ -26,7 +27,7 @@ namespace Lottery_App.View
         }
 
         DispatcherTimer timer;
-
+        DispatcherTimer timer2;
         private string winnerName;
 
         public string WinnerName
@@ -34,6 +35,15 @@ namespace Lottery_App.View
             get { return winnerName; }
             set { winnerName = value; OnPropertyChanged(); }
         }
+
+        private string titleText = "Who Will Win?";
+
+        public string TitleText
+        {
+            get { return titleText; }
+            set { titleText = value; OnPropertyChanged(); }
+        }
+
 
         private string OrginalWinnerName = "";
         public ShowWinner(string orginalWinnerName)
@@ -47,27 +57,52 @@ namespace Lottery_App.View
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(100);
+            timer.Interval = TimeSpan.FromSeconds(5);
             timer.Tick += Timer_Tick;
             WinnerName = "...";
             timer.Start();
+
+            timer2 = new DispatcherTimer();
+            timer2.Interval = TimeSpan.FromMilliseconds(100);
+            timer2.Tick += Timer_Tick2;
+            timer2.Start();
         }
 
         int index = UsersData.Instance.Items.Count-1;
+
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (index >= 0)
+            timer.Stop();
+            timer2.Stop();
+            Spinner.Visibility = Visibility.Hidden;
+            SpinnerIcon.Visibility = Visibility.Hidden;
+            CloseTxt.Visibility = Visibility.Visible;
+            TitleText = "The Winner is";
+            FooterTxt.FontSize = 50;
+            WinnerName = OrginalWinnerName;
+        }
+
+        private void Timer_Tick2(object sender, EventArgs e)
+        {
+            if (timer.IsEnabled)
             {
-                WinnerName = UsersData.Instance.Items[index].Name;
+                if (index >= 0)
+                {
+                    WinnerName = UsersData.Instance.Items[index].Name;
+                }
+                else
+                {
+                    index = UsersData.Instance.Items.Count - 1;
+                }
+                index--;
             }
-            else
+        }
+
+        private void CloseTxt_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
             {
-                index = UsersData.Instance.Items.Count - 1;
-            }
-            index--;
-            if (timer.Interval.Ticks > 30)
-            {
-                timer.Stop();
+                this.Close();
             }
         }
     }
