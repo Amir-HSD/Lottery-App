@@ -1,4 +1,5 @@
 ﻿using Lottery_App.Model;
+using Lottery_App.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,20 +23,12 @@ namespace Lottery_App.View
     /// </summary>
     public partial class MainPage : Page
     {
+        MainPageViewModel MPVM = new MainPageViewModel();
         public MainPage()
         {
             InitializeComponent();
-            DataContext = this;
-            Items = new ObservableCollection<Item>(UsersData.Instance.Items);
+            DataContext = MPVM;
         }
-
-        public ObservableCollection<Item> Items
-        {
-            get { return UsersData.Instance.Items; }
-            set { UsersData.Instance.Items = value; }
-        }
-
-        
 
     }
 }
