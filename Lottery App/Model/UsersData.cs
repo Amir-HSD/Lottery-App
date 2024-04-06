@@ -24,17 +24,12 @@ namespace Lottery_App.Model
         }
 
         public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<Item> ReservedNames { get; set; }
 
         public UsersData()
         {
             Items = new ObservableCollection<Item>();
-        }
-
-        public event EventHandler ItemChanged;
-
-        protected virtual void OnItemChanged()
-        {
-            ItemChanged?.Invoke(this, EventArgs.Empty);
+            ReservedNames = new ObservableCollection<Item>();
         }
 
     }

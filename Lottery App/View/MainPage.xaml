@@ -18,7 +18,7 @@
     <Grid>
         <Grid.ColumnDefinitions />
         <Grid.RowDefinitions>
-            <RowDefinition />
+            <RowDefinition MaxHeight="550" />
             <RowDefinition Height="100" />
         </Grid.RowDefinitions>
         <ui:ListView
