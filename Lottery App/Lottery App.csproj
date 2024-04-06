@@ -65,6 +65,7 @@
     <Compile Include="ViewModel\LotteryViewModel.cs" />
     <Compile Include="Base\ViewBase.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
+    <Compile Include="ViewModel\SettingsPageViewModel.cs" />
     <Compile Include="View\EditUserWindow.xaml.cs">
       <DependentUpon>EditUserWindow.xaml</DependentUpon>
     </Compile>

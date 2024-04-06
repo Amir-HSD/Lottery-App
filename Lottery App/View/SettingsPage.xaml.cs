@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lottery_App.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace Lottery_App.View
     /// </summary>
     public partial class SettingsPage : Page
     {
+        SettingsPageViewModel SPVM = new SettingsPageViewModel();
         public SettingsPage()
         {
             InitializeComponent();
+            DataContext = SPVM;
         }
     }
 }
