@@ -124,7 +124,7 @@
 
 
             <ui:NavigationView.FooterMenuItems>
-                <ui:NavigationViewItem Content="Settings">
+                <ui:NavigationViewItem Content="Settings" TargetPageType="{x:Type View:SettingsPage}">
                     <ui:NavigationViewItem.Icon>
                         <ui:SymbolIcon Symbol="Settings24" />
                     </ui:NavigationViewItem.Icon>
